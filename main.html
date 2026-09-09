@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organika - Solusi Ekosistem Sampah Organik</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --- CSS RESET & VARIABLES --- */
+    :root {
+      --bg-primary: #F9F8F3;       /* Krem muda lembut */
+      --bg-surface: #FFFFFF;       /* Putih bersih */
+      --primary-dark: #1E3F20;     /* Hijau lumut pekat */
+      --primary-green: #2E5A27;    /* Hijau daun/kompos */
+      --primary-light: #EBF3E8;    /* Hijau pucat aksen */
+      --earth-brown: #6A4E42;      /* Cokelat tanah */
+      --earth-light: #F4ECE7;      /* Cokelat krem aksen */
+      --accent-gold: #C88D2B;      /* Aksen pakan/maggot */
+      --text-main: #242924;        /* Teks gelap netral */
+      --text-muted: #5E665D;       /* Teks sekunder */
+      --border-color: #E2E0D8;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* --- NAVBAR --- */
+    header {
+      background: rgba(249, 248, 243, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--primary-green);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .btn {
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-green);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-brown {
+      background-color: var(--earth-brown);
+      color: white;
+    }
+
+    .btn-brown:hover {
+      background-color: #553D33;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background-color: var(--primary-light);
+      color: var(--primary-green);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border: 1px solid rgba(46, 90, 39, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--primary-dark);
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 40px;
+    }
+
+    /* Dual Roles CTA Selection */
+    .role-selection {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .role-box {
+      background: var(--bg-surface);
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 2px solid var(--border-color);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .role-box.mitra {
+      border-top: 5px solid var(--primary-green);
+    }
+
+    .role-box.penampung {
+      border-top: 5px solid var(--earth-brown);
+    }
+
+    .role-box h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .role-box p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* --- SECTION MITRA --- */
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .tag-green {
+      background-color: var(--primary-light);
+      color: var(--primary-green);
+    }
+
+    .tag-brown {
+      background-color: var(--earth-light);
+      color: var(--earth-brown);
+    }
+
+    .card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
+
+    .card ul {
+      list-style: none;
+      margin: 16px 0 24px;
+    }
+
+    .card ul li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card ul li::before {
+      content: "✔";
+      color: var(--primary-green);
+      font-size: 0.8rem;
+    }
+
+    /* --- SECTION PENAMPUNG --- */
+    .penampung-section {
+      margin-top: 80px;
+      background-color: #F1ECE6;
+      padding: 60px 0;
+      border-radius: 20px;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: var(--primary-dark);
+      color: #E2E8E2;
+      padding: 40px 0 20px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9AA89A;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          🌱 Organika
+        </a>
+        <ul class="nav-links">
+          <li><a href="#mitra">Kategori Mitra</a></li>
+          <li><a href="#penampung">Penampung</a></li>
+          <li><a href="#alur">Alur Kerja</a></li>
+        </ul>
+        <a href="#pilih-peran" class="btn btn-primary">Gabung Sekarang</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Platform Pengolahan Sampah Organik Terpadu</span>
+      <h1>Ubah Sisa Makanan Menjadi Nilai dan Manfaat Nyata</h1>
+      <p>Menghubungkan produsen sampah organik harian dengan unit pengolahan budidaya maggot, biogas, dan kompos secara terintegrasi.</p>
+
+      <!-- ROLE CHOOSER -->
+      <div class="role-selection" id="pilih-peran">
+        <div class="role-box mitra">
+          <div>
+            <h3>Saya Penghasil Sampah</h3>
+            <p>Ingin limbah organik rumah tangga, instansi, atau resto Anda dijemput dan diolah berkala.</p>
+          </div>
+          <a href="#mitra" class="btn btn-primary">Daftar Jadi Mitra</a>
+        </div>
+
+        <div class="role-box penampung">
+          <div>
+            <h3>Saya Pengolah / Penampung</h3>
+            <p>Mencari suplai bahan baku sampah organik stabil untuk maggot (BSF), kompos, atau pupuk cair.</p>
+          </div>
+          <a href="#penampung" class="btn btn-brown">Gabung Jadi Penampung</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MITRA CATEGORY SECTION -->
+  <section id="mitra" style="padding: 60px 0;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Pilihan Kategori Mitra</h2>
+        <p>Solusi penanganan limbah organik yang disesuaikan dengan volume dan jenis operasional Anda.</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- 1. MASYARAKAT -->
+        <div class="card">
+          <span class="card-tag tag-green">Volume Kecil / Rutin</span>
+          <h4>Masyarakat (Rumah Tangga)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Sistem setor sampah dapur (kulit buah, sisa sayur) skala rumah tangga tanpa ribet bau di pekarangan.
+          </p>
+          <ul>
+            <li>Penjemputan terjadwal tiap minggu</li>
+            <li>Sistem poin reward tiap kg sampah</li>
+            <li>Panduan pemilahan dari rumah</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%;">Pilih Kategori Ini</button>
+        </div>
+
+        <!-- 2. SEKOLAH / KAMPUS -->
+        <div class="card">
+          <span class="card-tag tag-green">Volume Menengah / Edukasi</span>
+          <h4>Sekolah & Kampus</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Program integrasi green campus, pengolahan sisa kantin, dan sarana riset biologi/lingkungan hidup.
+          </p>
+          <ul>
+            <li>Edukasi pemilahan untuk siswa/mahasiswa</li>
+            <li>Laporan sertifikasi peduli lingkungan</li>
+            <li>Bak penampungan organik khusus</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%;">Pilih Kategori Ini</button>
+        </div>
+
+        <!-- 3. TEMPAT MAKAN -->
+        <div class="card">
+          <span class="card-tag tag-green">Volume Besar / Harian</span>
+          <h4>Tempat Makan (Resto / Kafe)</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Layanan harian tepat waktu untuk ampas kopi, sisa racikan dapur, dan sisa piring katering.
+          </p>
+          <ul>
+            <li>Pengangkutan harian anti bau</li>
+            <li>Laporan audit pengurangan limbah</li>
+            <li>Dukungan tong kedap udara khusus</li>
+          </ul>
+          <button class="btn btn-primary" style="width: 100%;">Pilih Kategori Ini</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENAMPUNG SECTION -->
+  <section id="penampung" class="container">
+    <div class="penampung-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Untuk Mitra Penampung (Off-taker)</h2>
+          <p>Dapatkan suplai limbah organik terpilah siap pakai langsung dari sumbernya.</p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <span class="card-tag tag-brown">Pakan Organik</span>
+            <h4>Peternak Maggot BSF</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Mendapatkan ampas makanan segar tinggi nutrisi untuk siklus pakan larva Black Soldier Fly.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-tag tag-brown">Pupuk Alami</span>
+            <h4>Produsen Kompos & Bokashi</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Suplai bahan hijau basah untuk proses fermentasi massal pupuk tanaman.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-tag tag-brown">Energi Baru</span>
+            <h4>Reaktor Biogas Lokal</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Pemanfaatan gas metana dari dekomposisi sampah basah menjadi sumber energi alternatif.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h3>🌱 Organika</h3>
+          <p style="font-size: 0.9rem; color: #BDC8BD; max-width: 300px; margin-top: 8px;">
+            Platform sirkular ekonomi pengolahan sampah organik untuk lingkungan bersih dan bernilai guna.
+          </p>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 10px;">Navigasi Cepat</h4>
+          <p style="font-size: 0.9rem; color: #BDC8BD;">Tentang Kami</p>
+          <p style="font-size: 0.9rem; color: #BDC8BD;">Syarat & Ketentuan</p>
+          <p style="font-size: 0.9rem; color: #BDC8BD;">Pusat Bantuan</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Organika Project. Dibuat untuk tugas mata kuliah.
+        <p>KHODIZAHTUL SALBIYAH CANTIKK BANGETTTT </p> 
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
